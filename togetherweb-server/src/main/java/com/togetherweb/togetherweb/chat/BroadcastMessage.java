@@ -2,6 +2,23 @@
 
 package com.togetherweb.togetherweb.chat;
 
+import lombok.Getter;
+import lombok.Setter;
+
+import java.util.Date;
+
+@Setter
+@Getter
 public class BroadcastMessage {
 
+    private String author;
+    private String content;
+    private Date time = new Date();
+
+    BroadcastMessage() {}
+
+    public BroadcastMessage(String author, String content) {
+        this.author = author;
+        this.content = content;
+    }
 }
