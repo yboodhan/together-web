@@ -1,3 +1,6 @@
+// Author: Yashoma Boodhan
+// This is the main file for running all components
+
 package com.togetherweb.togetherweb;
 
 import org.springframework.boot.SpringApplication;
