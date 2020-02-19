@@ -1,4 +1,4 @@
-// The chat controller listens and responds with a message
+// The chat controller listens and responds with a message to all subscribers
 
 package com.togetherweb.togetherweb.chat;
 
