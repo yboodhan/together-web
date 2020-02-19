@@ -17,5 +17,17 @@ $(function() {
         e.preventDefault();
     });
 
+    // Add message to display
+    function showMessage(msg) {
+        $('#messages').append(
+            '<div>' +
+            '<p>' +
+                msg.time + ' | ' + msg.author + ' said: ' + msg.content +
+            '</p>' +
+            '</div>');
+    }
+
+
+
 
 });
