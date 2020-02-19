@@ -24,19 +24,23 @@
 
         <div class="row login">
             <form class="col-sm-offset-4 col-sm-4">
+                <small>Join Together Web and get started on watching YouTube videos with your friends today!</small>
                 <div class="form-group">
-                    <label for="author">Name</label>
-                    <input type="text" id="author" class="form-control">
+                    <label for="author">Name:</label>
+                    <input type="text" id="author" class="form-control" autofocus>
                 </div>
                 <div class="form-group">
                     <label for="secret">Secret key:</label>
                     <input type="password" class="form-control" id="secret">
                 </div>
-                <div class="form-group form-inline">
+                <div class="form-group">
                     <button id="connect" type="submit" class="btn btn-default">Connect</button>
-                    <button id="disconnect" type="submit" class="btn btn-default" disabled="disabled">Disconnect</button>
                 </div>
             </form>
+        </div>
+
+        <div class="row text-center">
+            <button id="disconnect" type="submit" class="btn btn-default" disabled="disabled">Disconnect</button>
         </div>
 
         <div class="row viewer">
@@ -57,10 +61,27 @@
             <div class="col-sm-6">
                 <h2 class="text-center">Chat</h2>
                     <div class="row chat-container">
-                        add chat screen here
+                        <div class="col-sm-12">
+                            <div id="messages">
+                                <div>message from someone</div>
+                                <div>message from someone</div>
+                                <div>message from someone</div>
+                                <div>message from someone</div>
+                                <div>message from someone</div>
+                                <div>message from someone</div>
+                                <div>message from someone</div>
+                            </div>
+                        </div>
                     </div>
                     <div class="row controls-container">
-                        controls
+                        <form>
+                            <div class="col-sm-8 form-group">
+                                <input type="text" id="content" class="form-control">
+                            </div>
+                            <div class="col-sm-4 form-group">
+                                <button id="send" type="submit" class="btn btn-default">Send</button>
+                            </div>
+                        </form>
                     </div>
             </div>
         </div>
