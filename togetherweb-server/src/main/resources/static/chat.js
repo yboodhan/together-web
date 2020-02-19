@@ -4,13 +4,10 @@ $(function() {
     'use strict';
 
     // Initially, the client is null
-    var client = null;
+    var client;
 
     // Initially, fields are set to disabled/unconnected
-    $('#connect,#disconnect,#text').prop('disabled', true);
-
-    // Initially, the message field is blank
-    $('#text').val("");
+    $('#connect,#disconnect,#content').prop('disabled', true);
 
     // On form submission, prevent page refresh
     $("form").on('submit', function (e) {
@@ -27,7 +24,67 @@ $(function() {
             '</div>');
     }
 
+    // Check connection and determine what should be displayed
+    function setConnected(connected) {
+        $("#connect").prop("disabled", connected);
+        $("#disconnect").prop("disabled", !connected);
+        $('#author').prop('disabled', connected);
+        $('#content').prop('disabled', !connected);
+
+        // If connected, show chat, video and other options
+        if (connected) {
+            $("#messages").show();
+            $('#content').focus();
+        }
+
+        // If not connected, hide all features
+        else {
+            $("#all-chat").hide();
+            $("#all-video").hide();
+            $("#all-find").hide();
+            $("#all-disconnect").hide();
+            $("#messages").html("");
+        }
+    }
+
+    // If a name is entered with valid key, allow user to connect
+    $('#author').on('blur change keyup', function(ev) {
+        $('#connect').prop('disabled', $(this).val().length == 0 );
+    });
+
+    // On clicking connect, connect and subscribe to get messages
+    $('#connect').click(function() {
+        client = Stomp.over(new SockJS('/websocket'));
+        client.connect({}, function (frame) {
+            setConnected(true);
+            client.subscribe('/chat/messages', function (message) {
+                showMessage(JSON.parse(message.body));
+            });
+        });
+    });
 
 
+    // On clicking disconnect, disconnect and remove views
+    $('#disconnect').click(function() {
+        if (client != null) {
+            client.disconnect();
+            setConnected(false);
+        }
+
+        client = null;
+    });
+
+    // On send, set values
+    $('#send').click(function() {
+        client.send("/app/chat", {},
+            JSON.stringify({
+                author: $("#author").val(),
+                content: $('#content').val()
+            })
+        );
+
+        // Reset content field to blank
+        $('#content').val("");
+    });
 
 });
