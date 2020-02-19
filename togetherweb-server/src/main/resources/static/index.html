@@ -25,16 +25,21 @@
         <div class="row login">
             <form class="col-sm-offset-4 col-sm-4">
                 <div class="form-group">
+                    <label for="author">Name</label>
+                    <input type="text" id="author" class="form-control">
+                </div>
+                <div class="form-group">
                     <label for="secret">Secret key:</label>
                     <input type="password" class="form-control" id="secret">
                 </div>
-                <div class="form-group">
-                    <button type="submit" class="btn btn-default">Enter</button>
+                <div class="form-group form-inline">
+                    <button id="connect" type="submit" class="btn btn-default">Connect</button>
+                    <button id="disconnect" type="submit" class="btn btn-default" disabled="disabled">Disconnect</button>
                 </div>
             </form>
         </div>
 
-        <div class="row">
+        <div class="row viewer">
             <div class="col-sm-6">
                 <h2 class="text-center">Watch</h2>
 
@@ -55,21 +60,15 @@
                         add chat screen here
                     </div>
                     <div class="row controls-container">
-                        name
-                        message
-                        submit
+                        controls
                     </div>
             </div>
         </div>
 
-        <div class="row">
+        <div class="row searcher">
             <h2 class="text-center">Find</h2>
                 Input search bar and find top 10 results to display as scroll
                 Add watch button to watch
-        </div>
-
-        <div class="row">
-            Disconnect
         </div>
     </main>
 </body>
