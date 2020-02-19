@@ -18,31 +18,51 @@
             <h1 class="text-center">Together Web</h1>
             <p class="text-center slogan">Find, watch, chat!</p>
         </div>
-        <div class="row">
-            <p class="text-center">If you have the secret key, enter it below to join:</p>
+
+        <div class="row login">
             <form class="col-sm-offset-4 col-sm-4">
                 <div class="form-group">
-                    <label for="secret">Key:</label>
+                    <label for="secret">Secret key:</label>
                     <input type="password" class="form-control" id="secret">
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-default">Enter</button>
                 </div>
             </form>
         </div>
+
         <div class="row">
             <div class="col-sm-6">
-                <div class="row chat-container">
-                    add chat screen here
-                </div>
-                <div class="row controls-container">
-                    add controllers for chat here
+                <h2 class="text-center">Watch</h2>
+                <div class="container">
+                    <div class="row chat-container">
+                        add video screen here
+                    </div>
+                    <div class="row controls-container">
+                        add video controllers for video here
+                    </div>
                 </div>
             </div>
+
             <div class="col-sm-6">
-                <div class="row chat-container">
-                    add video screen here
+                <h2 class="text-center">Chat</h2>
+                <div class="container">
+                    <div class="row chat-container">
+                        add chat screen here
+                    </div>
+                    <div class="row controls-container">
+                        name
+                        message
+                        submit
+                    </div>
                 </div>
-                <div class="row controls-container">
-                    add video controllers for video here
-                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <h2 class="text-center">Find</h2>
+            <div class="container">
+                Find videos/show queue
             </div>
         </div>
     </main>
