@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <link href="webjars/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-    <link href="/main.sass" rel="stylesheet">
+    <link href="/main.css" rel="stylesheet">
     <script src="/webjars/jquery/jquery.min.js"></script>
     <script src="/webjars/sockjs-client/sockjs.min.js"></script>
     <script src="/webjars/stomp-websocket/stomp.min.js"></script>
@@ -34,14 +34,16 @@
         <div class="row">
             <div class="col-sm-6">
                 <h2 class="text-center">Watch</h2>
-                <div class="container">
+
                     <div class="row chat-container">
-                        add video screen here
+                        <div class="embed-responsive embed-responsive-16by9">
+                            <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
+                        </div>
                     </div>
+
                     <div class="row controls-container">
                         add video controllers for video here
                     </div>
-                </div>
             </div>
 
             <div class="col-sm-6">
@@ -62,7 +64,8 @@
         <div class="row">
             <h2 class="text-center">Find</h2>
             <div class="container">
-                Find videos/show queue
+                Input search bar and find top 10 results to display as scroll
+                Add watch button to watch
             </div>
         </div>
     </main>
