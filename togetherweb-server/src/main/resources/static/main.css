@@ -12,3 +12,7 @@
 /*    width: 100%;*/
 /*    height: 100%;*/
 /*}*/
+
+h1, h2, g.slogan, label, button {
+    font-family: 'Julius Sans One', sans-serif;
+}
