@@ -6,22 +6,15 @@ $(function() {
     // Initially, the client is null
     var client;
 
-    // Initially, fields are set to disabled/unconnected
-    $('#connect,#disconnect,#content').prop('disabled', true);
-
-    // On form submission, prevent page refresh
-    $("form").on('submit', function (e) {
-        e.preventDefault();
-    });
-
     // Add message to display
     function showMessage(msg) {
         $('#messages').append(
             '<div>' +
             '<p>' +
-                msg.time + ' | ' + msg.author + ' said: ' + msg.content +
+            msg.time + ' | ' + msg.author + ' said: ' + msg.content +
             '</p>' +
-            '</div>');
+            '</div>'
+        );
     }
 
     // Check connection and determine what should be displayed
@@ -38,23 +31,31 @@ $(function() {
         }
 
         // If not connected, hide all features
-        else {
+        else
             $("#all-chat").hide();
             $("#all-video").hide();
             $("#all-find").hide();
             $("#all-disconnect").hide();
             $("#messages").html("");
-        }
     }
+
+    // On form submission, prevent page refresh
+    $("form").on('submit', function (e) {
+        e.preventDefault();
+    });
 
     // If a name is entered with valid key, allow user to connect
     $('#author').on('blur change keyup', function(ev) {
         $('#connect').prop('disabled', $(this).val().length == 0 );
     });
 
+    // Initially, fields are set to disabled/unconnected
+    $('#connect,#disconnect,#content').prop('disabled', true);
+
     // On clicking connect, connect and subscribe to get messages
     $('#connect').click(function() {
         client = Stomp.over(new SockJS('/websocket'));
+        console.log('Someone connected!')
         client.connect({}, function (frame) {
             setConnected(true);
             client.subscribe('/chat/messages', function (message) {
@@ -62,7 +63,6 @@ $(function() {
             });
         });
     });
-
 
     // On clicking disconnect, disconnect and remove views
     $('#disconnect').click(function() {
