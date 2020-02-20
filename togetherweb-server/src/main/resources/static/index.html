@@ -5,6 +5,7 @@
     <link href="webjars/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Julius+Sans+One&display=swap" rel="stylesheet">
     <link href="/main.css" rel="stylesheet">
+
     <script src="/webjars/jquery/jquery.min.js"></script>
     <script src="/webjars/sockjs-client/sockjs.min.js"></script>
     <script src="/webjars/stomp-websocket/stomp.min.js"></script>
@@ -22,7 +23,7 @@
             <p class="text-center slogan">Find. Watch. Chat.</p>
         </div>
 
-        <div class="row login">
+        <div class="row" id="login">
             <form class="col-sm-offset-4 col-sm-4">
                 <div class="form-group">
                     <small>Join Together Web and get started on watching YouTube videos with your friends today!</small>
@@ -45,7 +46,7 @@
             <button id="disconnect" type="submit" class="btn btn-default" disabled="disabled">Disconnect</button>
         </div>
 
-        <div class="row viewer">
+        <div class="row" id="viewer">
             <div class="col-sm-6" id="all-video">
                 <h2 class="text-center">Watch</h2>
 
@@ -82,7 +83,7 @@
             </div>
         </div>
 
-        <div class="row searcher" id="all-find">
+        <div class="row" id="searcher">
             <h2 class="text-center">Find</h2>
                 Input search bar and find top 10 results to display as scroll
                 Add watch button to watch

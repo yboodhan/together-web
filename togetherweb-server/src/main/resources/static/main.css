@@ -26,3 +26,7 @@ h1, h2, .slogan, label, button, small {
     height: 90vh;
     padding-top: 10vh;
 }
+
+#viewer, #searcher, #all-disconnect {
+    display: none;
+}

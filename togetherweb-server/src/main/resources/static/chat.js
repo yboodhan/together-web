@@ -28,15 +28,16 @@ $(function() {
         if (connected) {
             $("#messages").show();
             $('#content').focus();
+            $('#login').hide();
         }
 
         // If not connected, hide all features
-        else
-            $("#all-chat").hide();
-            $("#all-video").hide();
-            $("#all-find").hide();
+        else {
+            $("#viewer").hide();
+            $("#searcher").hide();
             $("#all-disconnect").hide();
             $("#messages").html("");
+        }
     }
 
     // On form submission, prevent page refresh
@@ -53,9 +54,9 @@ $(function() {
     $('#connect,#disconnect,#content').prop('disabled', true);
 
     // On clicking connect, connect and subscribe to get messages
-    $('#connect').click(function() {
+    $('#connect').click(function(e) {
+        e.preventDefault();
         client = Stomp.over(new SockJS('/websocket'));
-        console.log('Someone connected!')
         client.connect({}, function (frame) {
             setConnected(true);
             client.subscribe('/chat/messages', function (message) {
@@ -65,7 +66,8 @@ $(function() {
     });
 
     // On clicking disconnect, disconnect and remove views
-    $('#disconnect').click(function() {
+    $('#disconnect').click(function(e) {
+        e.preventDefault();
         if (client != null) {
             client.disconnect();
             setConnected(false);
@@ -75,7 +77,8 @@ $(function() {
     });
 
     // On send, set values
-    $('#send').click(function() {
+    $('#send').click(function(e) {
+        e.preventDefault();
         client.send("/app/chat", {},
             JSON.stringify({
                 author: $("#author").val(),
