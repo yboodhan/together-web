@@ -26,7 +26,8 @@ $(function() {
 
         // If connected, show chat, video and other options
         if (connected) {
-            $("#messages").show();
+            $("#viewer").show();
+            $("#searcher").show();
             $('#content').focus();
             $('#login').hide();
         }
